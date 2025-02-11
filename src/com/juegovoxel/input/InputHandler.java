@@ -39,7 +39,7 @@ public class InputHandler {
         if (Keyboard.isKeyDown(Keyboard.KEY_SPACE)) {
             if (player.isFlying()) {
                 dy += moveSpeed;
-            } else if (this.onGround) {
+            } else {
                 player.jump();
             }
         }
@@ -53,9 +53,8 @@ public class InputHandler {
             
         }
         
-        if(this.onGround) {
-        	 player.move(dx, dy, dz, world);
-        }
+        player.move(dx, dy, dz, world);
+      
 
         // Rotación de la cámara con el mouse
         float mouseDX = Mouse.getDX() * player.mouseSensitivity;
